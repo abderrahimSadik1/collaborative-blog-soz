@@ -1,0 +1,54 @@
+trigger:
+- main
+
+variables:
+  backendFolder: 'backend'
+  frontendFolder: 'frontend'
+
+stages:
+- stage: Build
+  displayName: 'Build Backend and Frontend'
+  jobs:
+  - job: Backend_Build
+    displayName: 'Build Backend'
+    pool:
+      name: Default
+      demands:
+      - agent.name -equals AgentBA2
+    steps:
+    - task: Maven@3
+      displayName: 'Maven Package'
+      inputs:
+        mavenPomFile: '$(backendFolder)/pom.xml'
+        goals: 'package'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Backend Artifact'
+      inputs:
+        pathtoPublish: '$(backendFolder)/target'
+        artifactName: 'backend'
+        publishLocation: 'Container'
+
+  - job: Frontend_Build
+    displayName: 'Build Frontend'
+    pool:
+      name: Default
+      demands:
+      - agent.name -equals AgentBA2
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '20.x'
+      displayName: 'Install Node.js'
+    - script: |
+        cd $(frontendFolder)
+        npm install
+        npm run build
+      displayName: 'Build and Package Frontend'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Frontend Artifact'
+      inputs:
+        pathtoPublish: '$(frontendFolder)/build'
+        artifactName: 'frontend'
+        publishLocation: 'Container'
