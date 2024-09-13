@@ -1,80 +1,92 @@
 # SOZ
 
-Blog Collaboratif 
+Collaborative Blog
 
 ## Description
 
-SOZ est une plateforme en ligne où plusieurs auteurs peuvent contribuer en publiant
-des articles ou des posts. Il offre la possibilité aux utilisateurs de partager 
-leurs connaissances, leurs expériences et leurs opinions avec une communauté
-plus large. Les fonctionnalités incluent la publication d'articles, la
-collaboration entre auteurs et la catégorisation des contenus pour une meilleure organisation.
+SOZ is an online platform where multiple authors can contribute by publishing articles or posts. It allows users to share their knowledge, experiences, and opinions with a larger community. The platform offers features such as article publishing, author collaboration, and content categorization for better organization.
 
-## Fonctionnalités
+## Features
 
--	Lire des articles: Ce cas d'utilisation permet à l'utilisateur de lire des articles sur l'application Web.
--	Publier des articles: Ce cas d'utilisation permet à l'utilisateur de publier des articles sur l'application Web.
--	Écrire un commentaire: Ce cas d'utilisation permet à l'utilisateur d'écrire un commentaire sur un article.
--	Gérer une collaboration: Ce cas d'utilisation permet à l'utilisateur de gérer une collaboration sur un article.
--	Gérer les utilisateurs: Ce cas d'utilisation permet à l'administrateur de gérer les utilisateurs de l'application Web.
--	Gérer les articles: Ce cas d'utilisation permet à l'administrateur de gérer les articles de l'application Web.
--	S'authentifier: Ce cas d'utilisation permet à l'utilisateur de s'authentifier sur l'application Web.
+- **Read Articles**: Users can browse and read articles available on the web platform.
+- **Publish Articles**: Authors can write and publish their own articles.
+- **Write a Comment**: Users can leave comments on published articles.
+- **Manage Collaboration**: Authors can collaborate with others on articles.
+- **Manage Users**: Administrators can manage user accounts on the platform.
+- **Manage Articles**: Administrators can manage and oversee all articles on the platform.
+- **Authentication**: Users can authenticate themselves through the web application.
 
-## Prérequis
+## Prerequisites
 
-Assurez-vous d'avoir les éléments suivants installés sur votre machine :
+Ensure the following are installed on your machine:
 
 - JDK 17 (Java Development Kit)
-- Node.js et npm n (Node Package Manager) "version 20"
+- Node.js and npm (Node Package Manager) version 20
 - MySQL
 
-## Configuration
+## Setup Instructions
 
-1. **Cloner ce dépôt sur votre machine locale:**
+1. **Clone this repository to your local machine:**
 
+    ```bash
     git clone https://github.com/your-user/your-project.git
     cd your-project
+    ```
 
-2. **Backend (Spring Boot):**
+2. **Backend Setup (Spring Boot):**
 
-    - Accéder au répertoire backend:
+    - Navigate to the backend directory:
+
+        ```bash
         cd backend
+        ```
 
-    - Installer l'extension Java Pack dans Visual Studio Code pour un meilleur support du développement Java: [Java Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-    - Installer le pack d'extension Spring Boot dans Visual Studio Code pour un support supplémentaire de Spring Boot: [Spring Boot Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.springboot-pack)
+    - Install the Java Pack extension for Visual Studio Code for better Java development support: [Java Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+    
+    - Install the Spring Boot extension pack for enhanced support for Spring Boot: [Spring Boot Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.springboot-pack)
 
-    - Configurer la base de données MySQL dans le fichier `application.properties` :
+    - Configure the MySQL database in the `application.properties` file:
 
-        - spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
-        - spring.datasource.username=your_username
-        - spring.datasource.password=your_password
+        ```properties
+        spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+        spring.datasource.username=your_username
+        spring.datasource.password=your_password
+        ```
 
-        Assurez-vous de remplacer ces valeurs par votre configuration MySQL.
+        Ensure to replace these values with your actual MySQL setup.
 
-    - Lancer l'application Spring Boot:
-      
+    - Start the Spring Boot application:
+
+        ```bash
         ./mvnw spring-boot:run
+        ```
 
-3. **Frontend (Vite avec React):**
+3. **Frontend Setup (Vite with React):**
 
-    - Accéder au répertoire frontend:
+    - Navigate to the frontend directory:
 
+        ```bash
         cd frontend
+        ```
 
-    - Installer les dépendances npm:
+    - Install npm dependencies:
 
+        ```bash
         npm install
+        ```
 
-    - Démarrer l'application frontend en mode développement:
+    - Run the frontend application in development mode:
 
+        ```bash
         npm run dev
+        ```
 
 ## Contribution
 
-Pour contribuer à ce projet, suivez ces étapes :
+To contribute to this project, follow these steps:
 
-1. Fork du projet
-2. Créez votre branche de fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Committez vos modifications (`git commit -m 'Add some AmazingFeature'`)
-4. Poussez sur la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrez une Pull Request
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
